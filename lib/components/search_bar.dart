@@ -25,7 +25,7 @@ class _SearchBarAppState extends State<SearchBarApp> {
   @override
   void initState() {
     searchBarHasFocus.addListener(() {
-      // print(searchBarHasFocus.hasFocus);
+      //print(searchBarHasFocus.hasFocus);
       setState(() {
         sbHasFocus = searchBarHasFocus.hasFocus;
       });
@@ -52,6 +52,8 @@ class _SearchBarAppState extends State<SearchBarApp> {
 
   void updateSearchQuery(value) {
     _searchController.text = value;
+    searchBarHasFocus.requestFocus();
+    search(value);
   }
   
 
@@ -95,6 +97,7 @@ class _SearchBarAppState extends State<SearchBarApp> {
                     search(value);
                     // print('search has changed');
                   },
+                  
                   leading: const Icon(
                     Icons.search,
                     color: Color.fromARGB(255, 39, 108, 228),
