@@ -24,8 +24,6 @@ class _CommunePageState extends State<CommunePage> {
 
   void loadCommunes(String codeDepartement) {
     setState(() {
-      print("code Département (commune page) $codeDepartement");
-
       communes = CommuneService.getCommunes(codeDepartement);
     });
   }
@@ -38,7 +36,7 @@ class _CommunePageState extends State<CommunePage> {
           // les données sont arrivés sans erreurs;
           if (snapshot.hasData) {
             // La request a provoqué une erreur;
-            List<Commune> communes = snapshot.data!.commune;
+            List<Commune> communes = snapshot.data!.communes;
             return Scaffold(
               appBar: AppBar(
                 bottom: PreferredSize(
@@ -48,18 +46,22 @@ class _CommunePageState extends State<CommunePage> {
                           width: double.infinity,
                           height: 150,
                           color: Colors.blue[50],
+                          padding: const EdgeInsets.all(5),
                           child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               Text(
                                 "Le département: ${widget.departement.nom}(${widget.departement.code}), compte ${communes.length} communes.",
                                 style: const TextStyle(
                                     fontSize: 14, fontWeight: FontWeight.bold),
+                                textAlign: TextAlign.center,
                               ),
                               const Text(
                                 "Cliquez sur l'une des communes suivantes pour en savoir plus",
                                 style: TextStyle(
                                     fontSize: 14, fontWeight: FontWeight.bold),
+                                textAlign: TextAlign.center,
                               ),
                             ],
                           )),

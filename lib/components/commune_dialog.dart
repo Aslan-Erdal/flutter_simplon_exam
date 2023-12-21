@@ -9,8 +9,6 @@ class CommuneDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      // Retrieve the text the that user has entered by using the
-      // TextEditingController.
       content: Column(
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.start,
@@ -18,13 +16,14 @@ class CommuneDialog extends StatelessWidget {
         children: <Widget>[
           const Text("Détails de la commune",
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+          const SizedBox(height: 20),
           Text("Nom: ${commune.nom}"),
           Text("Code: ${commune.code}"),
           Text("CodeDep: ${commune.codeDepartement}"),
           Text("Siren: ${commune.siren}"),
-          Text("Code EPCI: ${commune.code}"),
-          Text("Population: ${commune.codesPostaux.join(', ')}"),
-          Text("CodesPostaux: ${commune.code}"),
+          Text("Code EPCI: ${commune.codeEpci}"),
+          Text("Population: ${commune.population}"),
+          Text("CodesPostaux: ${commune.codesPostaux.join(', ')}"),
         ],
       ),
       actions: [
