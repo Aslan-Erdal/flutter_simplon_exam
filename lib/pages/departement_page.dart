@@ -7,7 +7,6 @@ import 'package:flutter_examen1/services/departement_service.dart';
 class DepartementPage extends StatefulWidget {
   const DepartementPage({super.key, required this.region});
 
-//   final String codeRegion;
   final Region region;
 
   @override
@@ -47,18 +46,22 @@ class _DepartementPageState extends State<DepartementPage> {
                           width: double.infinity,
                           height: 150,
                           color: Colors.blue[50],
+                          padding: const EdgeInsets.all(5),
                           child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               Text(
                                 "La région ${widget.region.nom}(${widget.region.code}) compte ${departements.length} départements.",
                                 style: const TextStyle(
                                     fontSize: 14, fontWeight: FontWeight.bold),
+                                textAlign: TextAlign.center,
                               ),
                               const Text(
                                 "Cliquez sur l'un des départements pour en savoir plus",
                                 style: TextStyle(
                                     fontSize: 14, fontWeight: FontWeight.bold),
+                                textAlign: TextAlign.center,
                               ),
                             ],
                           )),

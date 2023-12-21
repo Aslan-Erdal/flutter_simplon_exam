@@ -6,7 +6,6 @@ class CommuneService {
   static Future<CommuneList?> getCommunes(String codeDepartement) async {
     String communesUrl =
         "https://geo.api.gouv.fr/departements/$codeDepartement/communes";
-    print("code Département commune service $codeDepartement");
     try {
       final Response response = await get(Uri.parse(communesUrl),
           headers: {"Accept": "application/json"});
@@ -15,7 +14,7 @@ class CommuneService {
           final jsonResponse =
               json.decode(response.body); // maybe used jsonDecode()
           final CommuneList communes = CommuneList.fromJson(jsonResponse);
-          if (communes.commune.isNotEmpty) {
+          if (communes.communes.isNotEmpty) {
             return communes;
           } else {
             return null;

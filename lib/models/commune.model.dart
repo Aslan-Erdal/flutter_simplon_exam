@@ -14,7 +14,7 @@ class Commune {
   final String code;
   final String codeDepartement;
   final String siren;
-  final String codeEpci;
+  final String? codeEpci;
   final String codeRegion;
   final List<String> codesPostaux;
   final int population;
@@ -39,7 +39,7 @@ class Commune {
   String get getCode => code;
   String get getCodeDepartement => codeDepartement;
   String get getSiren => siren;
-  String get getCodeEpci => codeEpci;
+  String? get getCodeEpci => codeEpci;
   String get getCodeRegion => codeRegion;
   List<String> get getCodesPostaux => codesPostaux;
   int get getPopulationNumber => population;
@@ -48,15 +48,15 @@ class Commune {
 class CommuneList {
   // constructor;
   CommuneList({
-    required this.commune,
+    required this.communes,
   });
 
 // prppriété requise par le constructor;
-  final List<Commune> commune;
+  final List<Commune> communes;
 
   factory CommuneList.fromJson(List<dynamic> parseJson) {
-    List<Commune> commune = <Commune>[];
-    commune = parseJson.map((p) => Commune.fromJson(p)).toList();
-    return CommuneList(commune: commune);
+    List<Commune> communes = <Commune>[];
+    communes = parseJson.map((p) => Commune.fromJson(p)).toList();
+    return CommuneList(communes: communes);
   }
 }

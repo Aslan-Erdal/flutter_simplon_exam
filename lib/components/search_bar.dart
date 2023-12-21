@@ -58,8 +58,6 @@ class _SearchBarAppState extends State<SearchBarApp> {
       iso: widget.config.get("regions")[value]["iso"],
       code: widget.config.get("regions")[value]["code"],
     );
-
-    print(region);
     Navigator.of(context).push(
       MaterialPageRoute(
           builder: (_) => DepartementPage(
@@ -102,7 +100,6 @@ class _SearchBarAppState extends State<SearchBarApp> {
                       EdgeInsets.symmetric(horizontal: 16.0)),
                   onSubmitted: (value) {
                     // print("Submitting $value");
-                    print(value);
                   },
                   onChanged: (value) {
                     search(value);
